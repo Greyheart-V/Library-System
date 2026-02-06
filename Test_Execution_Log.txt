@@ -1,0 +1,42 @@
+==========================================
+    LIBRARY SYSTEM - AUTOMATED TEST RUN
+==========================================
+
+[Step 1] Setting up Database...
+
+[Step 2] Testing Normal Usage...
+   [Search] Looking for: 'The Hobbit'...
+   -> FOUND! ID: 103 | Title: The Hobbit | Condition: Good
+   [Success] John Doe borrowed 'Intro to C++'
+   [Success] John Doe borrowed 'Clean Code'
+
+[Step 3] Testing Error Handling...
+-> Scenario: Borrowing a book that is already taken
+   [Failed] Book is already borrowed.
+-> Scenario: Searching for a missing book
+   [Search] Looking for: 'Harry Potter'...
+   -> Not Found.
+-> Scenario: Borrowing invalid ID
+   [Error] Book not found.
+
+[Step 4] Testing Student Borrow Limit (Max 3)...
+   [Success] John Doe borrowed 'The Hobbit'
+-> Attempting to borrow 4th book (Should Fail)
+   [Failed] Borrow limit reached for this user type.
+
+[Step 5] Testing Unique Features...
+-> Testing Teacher Limit (Max 5)
+   [Success] Prof. Smith borrowed '1984'
+   [Success] Prof. Smith borrowed 'Art History'
+-> Testing Damaged Book Handling
+   [Admin] Alert: Book ID 105 marked as DAMAGED.
+   [Search] Looking for: 'Art History'...
+   -> FOUND! ID: 105 | Title: Art History | Condition: Damaged
+
+[Step 6] Testing Remove Functionality...
+   [Admin] Book ID 104 removed from system.
+   [Error] Book not found.
+
+==========================================
+          ALL TESTS COMPLETED
+==========================================
